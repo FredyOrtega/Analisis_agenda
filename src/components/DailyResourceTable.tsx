@@ -23,7 +23,7 @@ export const DailyResourceTable: React.FC<DailyResourceTableProps> = ({ data }) 
     data.forEach(item => {
       const date = item.fcha?.split(' ')[0] || 'N/A';
       if (date === 'N/A') return;
-      
+
       allDays.add(date);
       const group = getResourceGroup(item.cdgo_rcrso);
 
@@ -103,12 +103,12 @@ export const DailyResourceTable: React.FC<DailyResourceTableProps> = ({ data }) 
           <h3 className="text-lg font-semibold text-brand-dark">Análisis Diario por Grupo de Recurso</h3>
         </div>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-auto max-h-[600px]">
         <table className="w-full min-w-max text-left border-collapse">
-          <thead>
+          <thead className="sticky top-0 z-20">
             <tr className="bg-slate-50 border-y border-slate-100">
-              <th 
-                className="sticky left-0 z-10 bg-slate-50 px-6 py-4 text-sm font-semibold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-100 transition-colors border-r border-slate-200"
+              <th
+                className="sticky left-0 top-0 z-30 bg-slate-50 px-6 py-4 text-sm font-semibold text-slate-600 uppercase tracking-wider cursor-pointer hover:bg-slate-100 transition-colors border-r border-slate-200"
                 onClick={() => requestSort('date')}
               >
                 <div className="flex items-center gap-2">
@@ -116,9 +116,9 @@ export const DailyResourceTable: React.FC<DailyResourceTableProps> = ({ data }) 
                 </div>
               </th>
               {stats.resourceGroups.map(group => (
-                <th 
-                  key={group} 
-                  className="px-6 py-4 text-sm font-semibold text-slate-600 uppercase tracking-wider text-center cursor-pointer hover:bg-slate-100 transition-colors"
+                <th
+                  key={group}
+                  className="sticky top-0 z-20 bg-slate-50 px-6 py-4 text-sm font-semibold text-slate-600 uppercase tracking-wider text-center cursor-pointer hover:bg-slate-100 transition-colors"
                   onClick={() => requestSort(group)}
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -126,8 +126,8 @@ export const DailyResourceTable: React.FC<DailyResourceTableProps> = ({ data }) 
                   </div>
                 </th>
               ))}
-              <th 
-                className="px-6 py-4 text-sm font-semibold text-brand-dark uppercase tracking-wider text-center bg-slate-100/50 cursor-pointer hover:bg-slate-200 transition-colors"
+              <th
+                className="sticky top-0 z-20 px-6 py-4 text-sm font-semibold text-brand-dark uppercase tracking-wider text-center bg-slate-100 cursor-pointer hover:bg-slate-200 transition-colors"
                 onClick={() => requestSort('total')}
               >
                 <div className="flex items-center justify-center gap-2">
