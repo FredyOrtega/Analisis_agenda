@@ -1,0 +1,5 @@
+{
+  "name": "Seguimiento de Agendamiento Médico",
+  "description": "Aplicación para seguimiento de citas médicas, indicadores de inasistencias, reasignaciones y reportes consolidados.",
+  "requestFramePermissions": []
+}
