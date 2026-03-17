@@ -4,7 +4,7 @@
   --color-brand-primary: #02a58d;
   --color-brand-accent: #ff4d63;
   --color-brand-dark: #252525;
-  
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -12,4 +12,40 @@
   body {
     @apply text-brand-dark bg-slate-50;
   }
+}
+
+/* ✅ NAVBAR VERDE DEGRADADO PREMIUM */
+.main-navbar {
+  background: linear-gradient(90deg,
+      #0a3023 0%,
+      #0f4633 30%,
+      #145f48 60%,
+      #1b7f58 100%);
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  z-index: 9999 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Título */
+.navbar-brand {
+  color: #e9fff7 !important;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+/* Links */
+.nav-link-custom {
+  color: #e9fff7 !important;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: 0.25s ease;
+}
+
+/* Hover suave */
+.nav-link-custom:hover {
+  color: #b4f1e8 !important;
 }

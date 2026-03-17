@@ -183,34 +183,34 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <header className="main-navbar sticky top-0">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="bg-brand-primary p-2 rounded-lg">
+            <div className="bg-white/20 p-2 rounded-lg">
               <LayoutDashboard className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-brand-dark tracking-tight leading-none">Seguimiento de Agendamiento</h1>
-              <p className="text-xs text-slate-500 mt-1 font-medium uppercase tracking-wider">Gestión de Indicadores</p>
+              <h1 className="navbar-brand leading-none">Seguimiento de Agendamiento</h1>
+              <p className="text-xs text-white/80 mt-1 font-medium uppercase tracking-wider">Gestión de Indicadores</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
-              <div className="flex items-center gap-2 px-2 border-r border-slate-200">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Desde</span>
+            <div className="flex items-center gap-2 bg-white/10 p-1.5 rounded-xl border border-white/20">
+              <div className="flex items-center gap-2 px-2 border-r border-white/20">
+                <span className="text-[10px] font-bold text-white/60 uppercase">Desde</span>
                 <input
                   type="date"
-                  className="text-xs bg-transparent border-none focus:ring-0 p-0"
+                  className="text-xs bg-transparent border-none focus:ring-0 p-0 text-white [color-scheme:dark]"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
                 />
               </div>
               <div className="flex items-center gap-2 px-2">
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Hasta</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase">Hasta</span>
                 <input
                   type="date"
-                  className="text-xs bg-transparent border-none focus:ring-0 p-0"
+                  className="text-xs bg-transparent border-none focus:ring-0 p-0 text-white [color-scheme:dark]"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
                 />
@@ -218,20 +218,20 @@ export default function App() {
             </div>
 
             <div className="relative flex-1 md:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
               <input
                 type="text"
                 placeholder="Buscar paciente, recurso..."
-                className="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-brand-primary transition-all"
+                className="w-full pl-10 pr-4 py-2 bg-white/10 border-none rounded-xl text-sm text-white placeholder:text-white/50 focus:ring-2 focus:ring-white/30 transition-all"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
 
-            <div className="flex bg-slate-100 p-1 rounded-xl">
+            <div className="flex flex-wrap items-center">
               <button
                 onClick={() => setView('dashboard')}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${view === 'dashboard' ? 'bg-white text-brand-primary shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                className={`flex items-center gap-2 py-1.5 rounded-lg nav-link-custom ${view === 'dashboard' ? 'bg-white/20 px-3' : ''
                   }`}
               >
                 <LayoutDashboard className="w-4 h-4" />
@@ -239,7 +239,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setView('daily')}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${view === 'daily' ? 'bg-white text-brand-primary shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                className={`flex items-center gap-2 py-1.5 rounded-lg nav-link-custom ${view === 'daily' ? 'bg-white/20 px-3' : ''
                   }`}
               >
                 <BarChart2 className="w-4 h-4" />
@@ -247,7 +247,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setView('capacity')}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${view === 'capacity' ? 'bg-white text-brand-primary shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                className={`flex items-center gap-2 py-1.5 rounded-lg nav-link-custom ${view === 'capacity' ? 'bg-white/20 px-3' : ''
                   }`}
               >
                 <Calculator className="w-4 h-4" />
@@ -255,7 +255,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setView('tables')}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${view === 'tables' ? 'bg-white text-brand-primary shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                className={`flex items-center gap-2 py-1.5 rounded-lg nav-link-custom ${view === 'tables' ? 'bg-white/20 px-3' : ''
                   }`}
               >
                 <TableIcon className="w-4 h-4" />
@@ -263,7 +263,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setView('upload')}
-                className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${view === 'upload' ? 'bg-white text-brand-primary shadow-sm' : 'text-slate-500 hover:text-slate-700'
+                className={`flex items-center gap-2 py-1.5 rounded-lg nav-link-custom ${view === 'upload' ? 'bg-white/20 px-3' : ''
                   }`}
               >
                 <Upload className="w-4 h-4" />
